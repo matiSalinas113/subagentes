@@ -1,8 +1,4 @@
-"""Five hook demonstration tests; the fifth fails intentionally.
-
-This file deliberately blocks commits while it is staged. The intentional
-failure demonstrates the quality gate; it does not report a login defect.
-"""
+"""Five login validation tests checked by Git hooks and GitHub Actions."""
 
 from pathlib import Path
 import sys
@@ -25,8 +21,8 @@ class HookDemoTests(unittest.TestCase):
     def test_04_rejects_short_password(self):
         self.assertFalse(app.valid_password("corta"))
 
-    def test_05_intentional_failure_blocks_commit(self):
-        self.fail("FALLO INTENCIONAL: demostrar que el hook bloquea el commit.")
+    def test_05_accepts_password_with_minimum_length(self):
+        self.assertTrue(app.valid_password("a" * 12))
 
 
 if __name__ == "__main__":

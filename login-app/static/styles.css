@@ -1,0 +1,50 @@
+:root {
+  color-scheme: light dark;
+  --background: #f4f7fb;
+  --surface: #ffffff;
+  --text: #172033;
+  --muted: #4a5568;
+  --border: #687386;
+  --primary: #0759c7;
+  --primary-hover: #03469e;
+  --error: #b42318;
+  --focus: #ffbf47;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 20rem;
+  min-height: 100dvh;
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+.page-container { padding: 2rem 1rem; }
+.card { max-width: 30rem; margin: 0 auto; padding: clamp(1.5rem, 4vw, 2.5rem); background: var(--surface); border: 1px solid var(--border); border-radius: .5rem; }
+h1, h2 { margin-top: 0; }
+.intro { color: var(--muted); }
+.field { margin-block: 1.25rem; }
+label { display: block; margin-bottom: .4rem; font-weight: 700; }
+input, button { font: inherit; }
+input { width: 100%; min-height: 2.75rem; padding: .55rem .7rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: .25rem; }
+input[aria-invalid="true"] { border: 2px solid var(--error); }
+button { min-height: 2.75rem; padding: .55rem 1rem; color: #fff; background: var(--primary); border: 0; border-radius: .25rem; font-weight: 700; cursor: pointer; }
+button:hover:not(:disabled) { background: var(--primary-hover); }
+button:disabled { opacity: .65; cursor: wait; }
+.field-error { min-height: 1.5rem; margin: .35rem 0 0; color: var(--error); font-weight: 600; }
+.status { min-height: 1.5rem; margin-block: 1rem; font-weight: 600; }
+.status[data-state="error"] { color: var(--error); }
+.skip-link { position: fixed; inset: .5rem auto auto .5rem; z-index: 1; padding: .5rem; color: #000; background: #fff; transform: translateY(-200%); }
+.skip-link:focus { transform: translateY(0); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+@media (prefers-color-scheme: dark) {
+  :root { --background: #121826; --surface: #1e293b; --text: #f8fafc; --muted: #d1d5db; --border: #aab4c5; --primary: #60a5fa; --primary-hover: #93c5fd; --error: #fda4af; }
+  button { color: #082f60; }
+}
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }

@@ -1,7 +1,4 @@
-# Deja la demo como al inicio: código con bugs, sin tests ni README.
+# Limpia artefactos temporales sin restaurar código vulnerable ni eliminar documentación o pruebas.
 $raiz = $PSScriptRoot
-Copy-Item "$raiz\.reset\notas.py" "$raiz\proyecto-demo\notas.py" -Force
-Remove-Item "$raiz\proyecto-demo\tests" -Recurse -Force -ErrorAction SilentlyContinue
-Remove-Item "$raiz\proyecto-demo\README.md" -Force -ErrorAction SilentlyContinue
 Remove-Item "$raiz\proyecto-demo\__pycache__" -Recurse -Force -ErrorAction SilentlyContinue
-Write-Host "Demo reiniciada."
+Write-Host "Artefactos temporales limpiados; el código seguro, las pruebas y el README se conservaron."

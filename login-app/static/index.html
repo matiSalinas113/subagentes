@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Accede de forma segura a tu cuenta.">
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
+    <main id="main-content" class="page-container" tabindex="-1">
+      <section class="card" aria-labelledby="page-title">
+        <h1 id="page-title">Iniciar sesión</h1>
+
+        <div id="login-panel">
+          <p class="intro">Introduce tus datos para acceder a tu cuenta.</p>
+          <form id="login-form" novalidate>
+            <div class="field">
+              <label for="username">Nombre de usuario</label>
+              <input id="username" name="username" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" required aria-describedby="username-error">
+              <p id="username-error" class="field-error" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <label for="password">Contraseña</label>
+              <input id="password" name="password" type="password" autocomplete="current-password" required aria-describedby="password-error">
+              <p id="password-error" class="field-error" aria-live="polite"></p>
+            </div>
+
+            <p id="form-status" class="status" role="status" aria-live="polite"></p>
+            <button id="login-button" type="submit">Iniciar sesión</button>
+          </form>
+        </div>
+
+        <section id="account-panel" hidden aria-labelledby="account-title">
+          <h2 id="account-title">Sesión iniciada</h2>
+          <p>Has iniciado sesión como <strong id="account-username"></strong>.</p>
+          <p id="account-status" class="status" role="status" aria-live="polite"></p>
+          <button id="logout-button" type="button">Cerrar sesión</button>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
